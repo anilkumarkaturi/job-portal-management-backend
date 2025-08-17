@@ -5,21 +5,25 @@ import lombok.Data;
 
 import java.sql.Date;
 
-@Table(name="job_seeker_apply")
+@Table(name = "job_seeker_apply")
 @Entity
 @Data
 public class JobSeekerApply {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private Integer id;
-    @Column(name="apply_date")
+
+    @Column(name = "apply_date")
     private Date applyDate;
-    @Column(name="cover_letter")
+
+    @Column(name = "cover_letter")
     private String coverLetter;
-    @Column(name="job")
+
+    @Column(name = "job")
     private Integer job;
-    @Column(name="user_id")
+
+    @Column(name = "user_id")
     private Integer userId;
 }
