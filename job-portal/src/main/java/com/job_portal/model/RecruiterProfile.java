@@ -13,8 +13,14 @@ public class RecruiterProfile {
     @Column(name = "user_account_id")
     private Integer userAccountId;
 
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    @MapsId
+    private User userId;
+
     @Column(name = "city")
     private String city;
+
 
     @Column(name = "company")
     private String company;

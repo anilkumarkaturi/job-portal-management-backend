@@ -3,6 +3,8 @@ package com.job_portal.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Table(name = "users_type")
 @Entity
 @Data
@@ -16,5 +18,7 @@ public class UserType {
     @Column(name = "user_type_name")
     private String userTypeName;
 
+    @OneToMany(targetEntity = User.class, mappedBy = "userTypeId", cascade = CascadeType.ALL)
+    private List<User> users;
 
 }

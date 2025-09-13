@@ -41,4 +41,12 @@ public class JobPostActivity {
 
     @Column(name = "post_by_id")
     private Integer postById;
+
+    @Transient
+    @Column(name = "is_active")
+    private Boolean isActive;
+
+    @Transient
+    @Column(name = "is_saved")
+    private Boolean isSaved;
 }

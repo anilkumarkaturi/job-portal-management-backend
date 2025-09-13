@@ -3,6 +3,8 @@ package com.job_portal.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Table(name = "job_seeker_profile")
 @Entity
 @Data
@@ -36,5 +38,8 @@ public class JobSeekerProfile {
 
     @Column(name = "work_authorization")
     private String workAuthorization;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "jobSeekerProfile")
+    private List<Skill> skills;
 
 }

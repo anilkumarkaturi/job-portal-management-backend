@@ -16,19 +16,20 @@ public class User {
     @Column(name = "user_id")
     private Integer userId;
 
-    @Column(name = "user_account_id")
+    @Column(name = "email")
     private String email;
 
-    @Column(name = "user_account_id")
+    @Column(name = "is_active")
     private Boolean isActive;
 
-    @Column(name = "user_account_id")
+    @Column(name = "password")
     private String password;
 
-    @Column(name = "user_account_id")
+    @Column(name = "registration_date")
     private Date registrationDate;
 
-    @Column(name = "user_account_id")
-    private Integer userTypeId;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_type", referencedColumnName = "user_type_id")
+    private UserType userTypeId;
 
 }

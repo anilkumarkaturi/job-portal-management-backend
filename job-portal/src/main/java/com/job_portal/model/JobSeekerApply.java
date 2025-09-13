@@ -2,6 +2,7 @@ package com.job_portal.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.sql.Date;
 
@@ -16,14 +17,19 @@ public class JobSeekerApply {
     private Integer id;
 
     @Column(name = "apply_date")
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date applyDate;
 
     @Column(name = "cover_letter")
     private String coverLetter;
 
-    @Column(name = "job")
-    private Integer job;
 
-    @Column(name = "user_id")
-    private Integer userId;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", referencedColumnName = "user_account_id")
+    private JobSeekerProfile userId;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "job", referencedColumnName = "job_post_id")
+    private JobPostActivity job;
+
 }
