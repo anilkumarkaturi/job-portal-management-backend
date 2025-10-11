@@ -4,7 +4,8 @@ package com.job_portal.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.sql.Date;
+import java.util.Date;
+
 
 @Table(name = "users")
 @Entity
@@ -28,8 +29,12 @@ public class User {
     @Column(name = "registration_date")
     private Date registrationDate;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "user_type", referencedColumnName = "user_type_id")
     private UserType userTypeId;
+
+//    public void setUserId(Integer userId) {
+//        this.userId = userId;
+//    }
 
 }

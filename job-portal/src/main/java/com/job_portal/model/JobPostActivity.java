@@ -36,11 +36,15 @@ public class JobPostActivity {
     @Column(name = "job_company_id")
     private Integer jobCompanyId;
 
-    @Column(name = "job_location_id")
-    private Integer jobLocationId;
 
-    @Column(name = "post_by_id")
-    private Integer postById;
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "job_location_id", referencedColumnName = "id")
+    private JobLocation jobLocationId;
+
+
+    @OneToOne
+    @JoinColumn(name = "post_by_id", referencedColumnName = "user_id")
+    private User postById;
 
     @Transient
     @Column(name = "is_active")

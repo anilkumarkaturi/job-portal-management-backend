@@ -15,10 +15,10 @@ public class UserType {
     @Column(name = "user_type_id")
     private Integer userTypeId;
 
-    @Column(name = "user_type_name")
+    @Column(name = "user_type_name", unique = true)
     private String userTypeName;
 
-    @OneToMany(targetEntity = User.class, mappedBy = "userTypeId", cascade = CascadeType.ALL)
+    @OneToMany( mappedBy = "userTypeId", cascade = CascadeType.ALL)
     private List<User> users;
 
 }

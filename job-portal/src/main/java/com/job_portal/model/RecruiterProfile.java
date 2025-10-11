@@ -14,7 +14,7 @@ public class RecruiterProfile {
     private Integer userAccountId;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     @MapsId
     private User userId;
 
@@ -25,8 +25,7 @@ public class RecruiterProfile {
     @Column(name = "company")
     private String company;
 
-    @Column(name = "country")
-    private String country;
+
 
     @Column(name = "first_name")
     private String firstName;
@@ -36,6 +35,9 @@ public class RecruiterProfile {
 
     @Column(name = "profile_photo")
     private String profilePhoto;
+
+    @Column(name = "country")
+    private String country;
 
     @Column(name = "state")
     private String state;

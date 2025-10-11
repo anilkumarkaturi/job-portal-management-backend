@@ -13,11 +13,11 @@ public class JobSeekerSave {
     @Column(name = "id")
     private Integer id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "job_id", referencedColumnName = "job_post_id")
     private JobPostActivity jobPostActivity;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "user", referencedColumnName = "user_id")
     private User user;
 
